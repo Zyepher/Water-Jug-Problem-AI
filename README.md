@@ -34,9 +34,14 @@ Step 4 - Repeat until the frontier is empty (no solution) or until a solution is
 
 
 # Informed search:
-Step 1 -  With the given array of buckets specified in the problem, algorithmically choose one best combination of two buckets. From the two buckets, let's call the bucket with bigger capacity (size) as upper and the bucket with lower capacity (size) as lower. 
+Step 1 -  With the given array of buckets specified in the problem, algorithmically choose one best combination of two buckets. From the two buckets, let's call the bucket with bigger capacity (size) as upper and the bucket with lower capacity (size) as lower.
+
 Step 2 -  Then, while loop with the condition of the goal state not found
+
 Step 3 -  For every iteration, if the lower bucket is empty, fill the lower bucket.
+
 Step 4 -  If the lower bucket is not empty, pour from lower bucket to upper bucket.
+
 Step 5 -  After pouring to the upper bucket, check if the upper bucket is full. If it is full, drain the upper bucket.
+
 Step 6 -  Repeat until the frontier is empty (no solution) or until a solution is found.
