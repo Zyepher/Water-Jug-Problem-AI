@@ -4,11 +4,7 @@
 Built an AI player to solve the puzzles. Implemented informed search (BFS) and uninformed search algorithms. The software takes two inputs (Σ water jugs &amp; water level for each jug) from the user to create the puzzle and output the solution by displaying the path and the search tree.
 
 
-# Problem Description
-To develop an AI player equipped with two different search algorithms which are informed search and uninformed search for water bucket puzzles. The program will take input that contains the information of the problem and will output the path and the search tree to the problem.
-
-
-# Uninformed search (Bfs):
+# Uninformed Search (BFS):
 Step 1 - With the given array of buckets specified in the problem, expand the root node and return children for all possible actions. Everytime a parent node is expanded, if the state is not yet explored, append the node to the frontier.
 
 The available actions are:
@@ -33,7 +29,7 @@ Step 3 - After all the child is expanded from the root node, remove the root nod
 Step 4 - Repeat until the frontier is empty (no solution) or until a solution is found.
 
 
-# Informed search:
+# Informed Search:
 Step 1 -  With the given array of buckets specified in the problem, algorithmically choose one best combination of two buckets. From the two buckets, let's call the bucket with bigger capacity (size) as upper and the bucket with lower capacity (size) as lower.
 
 Step 2 -  Then, while loop with the condition of the goal state not found
