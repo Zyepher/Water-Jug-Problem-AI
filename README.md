@@ -13,16 +13,26 @@ The available actions are:
 3. Pour from a bucket to another bucket
 
 Step 2 - The total of possible actions depends on the specified problem. For example, three buckets with capacity of 8, 5, 3 where initially all buckets are empty, there are:
-  • 3 possibilities from “Fill a bucket” action.
-  • 3 possibilities from “Drain a bucket” action.
-  • “Pour from a bucket to another bucket” action has the total of possibility of (n - 1) * n, where n is the total number of buckets. 
-    In this example, there are (3 - 1) * 3 = 6 possibilities. The possibilities are:
-      • A -> B
-      • A -> C
-      • B -> A
-      • B -> C
-      • C -> A
-      • C -> B
+
+• 3 possibilities from “Fill a bucket” action.
+
+• 3 possibilities from “Drain a bucket” action.
+
+• “Pour from a bucket to another bucket” action has the total of possibility of (n - 1) * n, where n is the total number of buckets. 
+
+In this example, there are (3 - 1) * 3 = 6 possibilities. The possibilities are:
+
+• A -> B
+
+• A -> C
+
+• B -> A
+
+• B -> C
+
+• C -> A
+
+• C -> B
 
 Step 3 - After all the child is expanded from the root node, remove the root node from the frontier and proceed with the next iteration (Queue, first-in-first-out) with the first child node in the frontier.
 
