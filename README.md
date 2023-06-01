@@ -1,53 +1,39 @@
 # Water-Jug-Problem-AI
 
 # Software Description
-Built an AI player to solve the puzzles. Implemented informed search (BFS) and uninformed search algorithms. The software takes two inputs (Σ water jugs &amp; water level for each jug) from the user to create the puzzle and output the solution by displaying the path and the search tree.
+The software is designed to solve the Water Jug problem through an AI player using both informed and uninformed search algorithms. It takes two inputs from the user: the number of water jugs and their respective water levels, which help define the problem. The software then provides a solution by displaying the path to the goal state and the search tree.
 
 
 # Uninformed Search (BFS):
-Step 1 - With the given array of buckets specified in the problem, expand the root node and return children for all possible actions. Everytime a parent node is expanded, if the state is not yet explored, append the node to the frontier.
+Step 1: Given the array of buckets specified in the problem, expand the root node and generate children for all possible actions. The available actions are: The available actions are:
+• Fill a bucket
+• Drain a bucket
+• Pour from a bucket to another bucket
 
-The available actions are:
-1. Fill a bucket
-2. Drain a bucket
-3. Pour from a bucket to another bucket
+When expanding a parent node, if the state has not been explored or is not already in the frontier, add the node to the frontier.
 
-Step 2 - The total of possible actions depends on the specified problem. For example, three buckets with capacity of 8, 5, 3 where initially all buckets are empty, there are:
+Step 2: The total number of possible actions depends on the specifics of the problem. For instance, consider three buckets with capacities of 8, 5, and 3 where initially all buckets are empty. The possible actions are:
 
-• 3 possibilities from “Fill a bucket” action.
+• 3 (THREE) options from the "Fill a bucket" action
+• 3 (THREE) options from the "Drain a bucket" action
+• "Pour from a bucket to another bucket" action has a total of (n - 1) * n possibilities, where n is the total number of buckets. For this case, there are (3 - 1) * 3 = 6 possibilities.
 
-• 3 possibilities from “Drain a bucket” action.
+Step 3: After expanding all children from the root node, remove the root node from the frontier. Then, in a queue fashion (first-in-first-out), proceed with the next node in the frontier.
 
-• “Pour from a bucket to another bucket” action has the total of possibility of (n - 1) * n, where n is the total number of buckets. 
-
-In this example, there are (3 - 1) * 3 = 6 possibilities. The possibilities are:
-
-• A -> B
-
-• A -> C
-
-• B -> A
-
-• B -> C
-
-• C -> A
-
-• C -> B
-
-Step 3 - After all the child is expanded from the root node, remove the root node from the frontier and proceed with the next iteration (Queue, first-in-first-out) with the first child node in the frontier.
-
-Step 4 - Repeat until the frontier is empty (no solution) or until a solution is found.
+Step 4: Repeat steps 1-3 until the frontier is empty (indicating no solution) or a solution is found.
 
 
-# Informed Search:
-Step 1 -  With the given array of buckets specified in the problem, algorithmically choose one best combination of two buckets. From the two buckets, let's call the bucket with bigger capacity (size) as upper and the bucket with lower capacity (size) as lower.
+# Informed Search (Heuristic-based):
+Step 1: Given the array of buckets, consider all possible pairs of buckets.
 
-Step 2 -  Then, while loop with the condition of the goal state not found
+Step 2: While the goal state has not been found, iterate through the loop.
 
-Step 3 -  For every iteration, if the lower bucket is empty, fill the lower bucket.
+Step 3: For each iteration, if a bucket is empty, fill it.
 
-Step 4 -  If the lower bucket is not empty, pour from lower bucket to upper bucket.
+Step 4: If a bucket is not empty, consider pouring from one bucket to another.
 
-Step 5 -  After pouring to the upper bucket, check if the upper bucket is full. If it is full, drain the upper bucket.
+Step 5: After pouring into another bucket, check if that bucket is full. If it is, drain the bucket.
 
-Step 6 -  Repeat until the frontier is empty (no solution) or until a solution is found.
+Step 6: Calculate a heuristic that considers the absolute difference between the current water level in each bucket and the desired goal state. Use this heuristic to decide which action to take next.
+
+Step 7: Repeat steps 3-6 until the frontier is empty (indicating no solution) or a solution is found.
